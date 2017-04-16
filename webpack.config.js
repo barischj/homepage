@@ -5,7 +5,6 @@ const { NamedModulesPlugin } = require('webpack');
 // Absolute paths of directories.
 const dirs = {
   dist: path.join(__dirname, 'dist'),
-  node_modules: path.resolve(__dirname, 'node_modules'),
   src: path.join(__dirname, 'src'),
 };
 
@@ -34,10 +33,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.jsx$/,
@@ -50,16 +46,18 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [dirs.node_modules],
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      // The following loaders were introduced to add support for loading files
+      // from font-awesome. Based on instructions at:
+      // https://github.com/shakacode/font-awesome-loader/blob/master/docs/usage-webpack2.md
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'url-loader',
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        use: 'file-loader',
       },
     ],
   },
