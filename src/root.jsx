@@ -13,7 +13,7 @@ if (module.hot) {
 }
 
 WebFont.load({
-  google: {
+  custom: {
     families: ['Cardo'],
   },
   fontactive: () => {
