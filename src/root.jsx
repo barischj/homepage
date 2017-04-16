@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import WebFont from 'webfontloader';
 
 import App from 'App';
 
@@ -11,7 +12,15 @@ if (module.hot) {
   module.hot.accept();
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-);
+WebFont.load({
+  google: {
+    families: ['Cardo'],
+  },
+  fontactive: () => {
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root'),
+    );
+  },
+});
+
