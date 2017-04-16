@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import FAIconLink from 'FAIconLink';
 import Header from 'Header';
+import Repos from 'Repos';
 
 class App extends Component {
   render() {
@@ -10,8 +11,8 @@ class App extends Component {
         <div className="header-container">
           <Header />
         </div>
-        <div className="header-content">
-          <Header />
+        <div className="repos-container">
+          <Repos />
         </div>
       </div>
     );
