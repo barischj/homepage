@@ -13,7 +13,6 @@ const dirs = {
 const names = {
   inHTML: 'index.html',
   inReact: 'root.jsx',
-  inSASS: 'app.sass',
   outJS: 'bundle.js',
 };
 
@@ -21,15 +20,11 @@ const names = {
 const paths = {
   inHTML: path.join(dirs.src, names.inHTML),
   inReact: path.join(dirs.src, names.inReact),
-  inSASS: path.join(dirs.src, names.inSASS),
 };
 
 module.exports = {
   entry: {
-    app: [
-      paths.inReact,
-      paths.inSASS,
-    ],
+    app: paths.inReact,
   },
   output: {
     path: dirs.dist,
@@ -37,6 +32,22 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.jsx$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env', 'react'],
+          },
+        },
+      },
       {
         test: /\.sass$/,
         use: [
@@ -49,15 +60,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.jsx$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env', 'react'],
-          },
-        },
       },
     ],
   },
