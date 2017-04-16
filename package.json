@@ -28,6 +28,6 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server -d --hot --open",
-    "test": "eslint ."
+    "test": "eslint . --ignore-pattern '!./*.js'"
   }
 }
