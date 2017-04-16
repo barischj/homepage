@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+import App from 'App';
 
 require('normalize.css/normalize.css');
 require('font-awesome/css/font-awesome.css');

@@ -1,6 +1,30 @@
-@import '~milligram/src/Color'
-@import '~milligram/src/Button'
-@import '~milligram/src/Typography'
+@import url('https://fonts.googleapis.com/css?family=Cardo');
+
+$color-primary: #0E1116
+$color-secondary: #374A67
+
+$unit-sml: .2rem
+
+.header-container
+  align-items: center
+  display: flex
+  height: 60vh
+  justify-content: center
+
+.header-content
+  align-items: center
+  display: flex
+  flex-direction: column
+
+.margin-sml
+  margin: $unit-sml
+
+.share-dialog
+  background-color: $color-primary
+  border-radius: $unit-sml
+  color: white
+  padding: 0.05rem 0.8rem 0.05rem 0.8rem
 
 .title
   color: $color-primary
+  font-family: 'Cardo', serif

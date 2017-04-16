@@ -5,17 +5,18 @@ const { NamedModulesPlugin } = require('webpack');
 // Absolute paths of directories.
 const dirs = {
   dist: path.join(__dirname, 'dist'),
+  modules: path.join(__dirname, 'src/modules'),
   src: path.join(__dirname, 'src'),
 };
 
-// Names of input and output files.
+// Names of files.
 const names = {
   inHTML: 'index.html',
   inReact: 'root.jsx',
   outJS: 'bundle.js',
 };
 
-// Absolute paths of input and output files.
+// Absolute paths of files.
 const paths = {
   inHTML: path.join(dirs.src, names.inHTML),
   inReact: path.join(dirs.src, names.inReact),
@@ -37,12 +38,7 @@ module.exports = {
       },
       {
         test: /\.jsx$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env', 'react'],
-          },
-        },
+        use: 'babel-loader',
       },
       {
         test: /\.sass$/,
@@ -71,5 +67,6 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
+    modules: [dirs.modules, 'node_modules'],
   },
 };
