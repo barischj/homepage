@@ -14,7 +14,7 @@ class Header extends Component {
   render() {
     return (
       <div className="header-content">
-        <h1 className="title">Jeremy Barisch Rooney</h1>
+        <p className="title">Jeremy Barisch Rooney</p>
         <div>
           {renderIconLink('fa-github', 'https://github.com/barischj')}
           {renderIconLink('fa-linkedin', 'https://linkedin.com/in/jbarischr')}

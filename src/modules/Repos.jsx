@@ -7,6 +7,10 @@ class Repos extends Component {
     return (
       <div className="repos-content">
         <Repo repo="threepenny-gui-flexbox" />
+        <Repo repo="threepenny-gui-flexbox" />
+        <Repo repo="threepenny-gui-flexbox" />
+        <Repo repo="threepenny-gui-flexbox" />
+        <Repo repo="threepenny-gui-flexbox" />
       </div>
     );
   }

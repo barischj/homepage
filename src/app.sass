@@ -2,15 +2,37 @@
   font-family: 'Cardo'
   src: local('Cardo'), local('Cardo-Regular'), url(Cardo-Regular.ttf)
 
-$color-primary: #0E1116
-$color-secondary: #374A67
+@font-face
+  font-family: 'Open Sans'
+  src: local('Open Sans'), local('OpenSans'), url(OpenSans-Regular.ttf)
 
-$unit-sml: .2rem
+/* Colours.
+$color-dark-primary: #0E1116
+$color-dark-secondary: #374A67
+$color-light-primary: white
+
+/* Layout units.
+$unit-tiny: 0.05em
+$unit-sml: 4 * $unit-tiny
+$unit-med: 2 * $unit-sml
+$unit-lrg: 2 * $unit-med
+
+/* Container sizes.
+$header-container-height: 95vh
+$repos-container-min-height: 100vh - $header-container-height
+
+/* Remaining variables.
+$half-repo-grid-gutter: $unit-lrg
+$repo-card-size: 16em
+
+body
+  margin: 0
 
 .header-container
   align-items: center
+  background-color: $color-light-primary
   display: flex
-  height: 60vh
+  height: $header-container-height
   justify-content: center
 
 .header-content
@@ -18,15 +40,40 @@ $unit-sml: .2rem
   display: flex
   flex-direction: column
 
+hr
+  border: 0
+  height: $unit-tiny
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+
 .margin-sml
   margin: $unit-sml
 
+.repos-container
+  background-color: $color-dark-secondary
+  min-height: $repos-container-min-height
+
+.repos-content
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  padding: $half-repo-grid-gutter
+
+.repo-card
+  background-color: $color-light-primary
+  border-radius: $unit-tiny
+  height: $repo-card-size
+  margin: $half-repo-grid-gutter
+  font-family: 'Open Sans', sans-serif
+  text-align: center
+  width: $repo-card-size
+
 .share-dialog
-  background-color: $color-primary
+  background-color: $color-dark-primary
   border-radius: $unit-sml
   color: white
-  padding: 0.05rem 0.8rem 0.05rem 0.8rem
+  padding: $unit-tiny $unit-lrg $unit-tiny $unit-lrg
 
 .title
-  color: $color-primary
+  color: $color-dark-primary
   font-family: 'Cardo', serif
+  font-size: 3em
