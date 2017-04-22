@@ -4,10 +4,17 @@ import R from 'ramda';
 import request from 'superagent';
 import Languages from 'Modules/Languages';
 
-// The most used languages and their percentage of use [[String, Int]].
+/**
+ * @param {Object} response - The JSON response from GitHub's language API. Each
+ *   key is a language e.g. Haskell and the value is the number of bytes written
+ *   in that language.
+ * @returns {[[string, number]]} A list of the three most used languages and
+ *   respective percentage of use, in ascending order.
+ */
 function takeLanguages(response) {
-  const mostUsed = R.take(3, R.sortBy(R.prop(1), R.toPairs(response)));
-  const totalBytes = R.sum(R.map(R.prop(1), mostUsed));
+  const mostUsed =
+    R.take(3, R.reverse(R.sortBy(R.prop(1), R.toPairs(response))));
+  const totalBytes = R.sum(R.values(response));
   return R.map(R.adjust(x => (x / totalBytes) * 100, 1), mostUsed);
 }
 
@@ -23,7 +30,8 @@ class Repo extends Component {
       description: 'Flexbox layouts for Threepenny-gui',
       languages: [],
     };
-    request.get(`https://api.github.com/repos/barischj/${this.props.repo}/languages`)
+    request.get(
+      `https://api.github.com/repos/barischj/${this.props.repo}/languages`)
       .end((err, response) => {
         if (err) console.log(err);
         this.setState({ languages: takeLanguages(JSON.parse(response.text)) });
