@@ -8,7 +8,7 @@ function renderLanguage(args) {
   return (
     <div className="language" style={{ backgroundColor: colours[language] }}>
       <span>{language}</span>
-      <span>{`${loc} LOC`}</span>
+      <span>{`${loc} %`}</span>
     </div>
   );
 }

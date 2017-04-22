@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { prop, sortBy, take, toPairs } from 'ramda';
+import R from 'ramda';
 import request from 'superagent';
 import Languages from 'Modules/Languages';
 
-// Take the three most popular languages.
+// The most used languages and their percentage of use [[String, Int]].
 function takeLanguages(response) {
-  return take(3, sortBy(prop(1), toPairs(response)));
+  const mostUsed = R.take(3, R.sortBy(R.prop(1), R.toPairs(response)));
+  const totalBytes = R.sum(R.map(R.prop(1), mostUsed));
+  return R.map(R.adjust(x => (x / totalBytes) * 100, 1), mostUsed);
 }
 
 class Repo extends Component {
