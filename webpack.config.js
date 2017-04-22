@@ -5,6 +5,7 @@ const { NamedModulesPlugin } = require('webpack');
 // Absolute paths of directories.
 const dirs = {
   dist: path.join(__dirname, 'dist'),
+  fonts: path.join(__dirname, 'src/fonts'),
   modules: path.join(__dirname, 'src/modules'),
   src: path.join(__dirname, 'src'),
 };
@@ -66,7 +67,11 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.json', '.jsx'],
-    modules: [dirs.modules, 'node_modules'],
+    alias: {
+      Fonts: dirs.fonts,
+      Modules: dirs.modules,
+      Src: dirs.src,
+    },
+    extensions: ['.js', '.jsx'],
   },
 };

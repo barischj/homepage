@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { prop, sortBy, take, toPairs } from 'ramda';
+import Languages from 'Modules/Languages';
 import PropTypes from 'prop-types';
 import request from 'superagent';
-import { prop, sortBy, take, toPairs } from 'ramda';
-
-import Languages from 'Languages';
 
 // Take the three most popular languages.
 function takeLanguages(response) {
@@ -32,13 +31,9 @@ class Repo extends Component {
   render() {
     return (
       <div className="repo-card">
-        <p>
-          {this.props.repo}
-        </p>
+        <p>{this.props.repo}</p>
         <hr />
-        <p>
-          {this.state.description}
-        </p>
+        <p>{this.state.description}</p>
         <Languages languages={this.state.languages} />
       </div>
     );

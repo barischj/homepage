@@ -1,35 +1,26 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import colours from 'colours';
+import colours from 'Src/language-colours.json';
 import { map } from 'ramda';
 
-// A coloured table row for a language.
+// A coloured language and LOC information.
 function renderLanguage(args) {
+  console.log(args);
   const [language, loc] = args;
   return (
-    <tr style={{ backgroundColor: colours[language] }}>
-      <td>{language}</td>
-      <td>{loc}</td>
-    </tr>
+    <div className="language" style={{ backgroundColor: colours[language] }}>
+      <span className="language-language">{language}</span>
+      <span className="language-loc">{`${loc} LOC`}</span>
+    </div>
   );
 }
 
 class Languages extends Component {
 
-  constructor(props) {
-    super(props);
-    console.log(props.languages);
-  }
-
-  static propTypes = {
-    languages: PropTypes.array.isRequired,
-  }
-
   render() {
     return (
-      <table>
+      <div>
         {map(renderLanguage, this.props.languages)}
-      </table>
+      </div>
     );
   }
 

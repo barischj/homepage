@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
-import FAIconLink from 'FAIconLink';
-import Header from 'Header';
-import Repos from 'Repos';
+import Header from 'Modules/Header';
+import Repos from 'Modules/Repos';
 
 class App extends Component {
   render() {

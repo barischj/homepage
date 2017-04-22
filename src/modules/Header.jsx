@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import FAIconLink from 'FAIconLink';
+import FAIconLink from 'Modules/FAIconLink';
 
 function renderIconLink(icon, url) {
   return (

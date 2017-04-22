@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import Repo from 'Repo';
+import Repo from 'Modules/Repo';
 
 class Repos extends Component {
   render() {
