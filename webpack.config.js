@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { NamedModulesPlugin } = require('webpack');
 
 // Absolute paths of directories.
@@ -25,9 +25,11 @@ const paths = {
 
 module.exports = {
   entry: {
+    // All compiled modules are in the tree of entry.path's imports.
     app: paths.inReact,
   },
   output: {
+    // All output files are written to the output.path directory.
     path: dirs.dist,
     filename: names.outJS,
   },
@@ -61,17 +63,20 @@ module.exports = {
   plugins: [
     new NamedModulesPlugin(),
     new HtmlWebpackPlugin({
+      // Inject the bundled JavaScript into our HTML.
       inject: 'body',
       template: paths.inHTML,
       title: 'Jeremy',
     }),
   ],
   resolve: {
+    // Use aliases for module directories, to avoid relative imports.
     alias: {
       Fonts: dirs.fonts,
       Modules: dirs.modules,
       Src: dirs.src,
     },
+    // Don't require file extensions when resolving these filetypes.
     extensions: ['.js', '.jsx'],
   },
 };
