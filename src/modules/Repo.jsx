@@ -33,7 +33,7 @@ class Repo extends Component {
       <div className="repo-card">
         <p>{this.props.repo}</p>
         <hr />
-        <p>{this.state.description}</p>
+        <p className="repo-card-description">{this.state.description}</p>
         <Languages languages={this.state.languages} />
       </div>
     );

@@ -15,6 +15,7 @@ class FAIconLink extends Component {
       </a>
     );
   }
+
 }
 
 export default FAIconLink;

@@ -10,6 +10,7 @@ function renderIconLink(icon, url) {
 }
 
 class Header extends Component {
+
   render() {
     return (
       <div className="header-content">
@@ -21,6 +22,7 @@ class Header extends Component {
       </div>
     );
   }
+
 }
 
 export default Header;

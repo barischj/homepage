@@ -23,7 +23,6 @@ $repos-container-min-height: 100vh - $header-container-height
 
 /* Remaining variables.
 $half-repo-grid-gutter: $unit-lrg
-$repo-card-size: 16em
 
 body
   margin: 0
@@ -44,7 +43,15 @@ hr
   border: 0
   height: $unit-tiny
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+  margin-left: 0
+  margin-right: 0
 
+.language
+  display: flex
+  justify-content: space-around
+  padding: $unit-med
+
+// TODO share-dialog
 .margin-sml
   margin: $unit-sml
 
@@ -61,11 +68,16 @@ hr
 .repo-card
   background-color: $color-light-primary
   border-radius: $unit-tiny
-  height: $repo-card-size
+  display: flex
+  flex-direction: column
+  height: 12em
   margin: $half-repo-grid-gutter
   font-family: 'Open Sans', sans-serif
   text-align: center
-  width: $repo-card-size
+  width: 16em
+
+.repo-card-description
+  flex-grow: 1
 
 .share-dialog
   background-color: $color-dark-primary

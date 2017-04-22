@@ -3,6 +3,7 @@ import Header from 'Modules/Header';
 import Repos from 'Modules/Repos';
 
 class App extends Component {
+
   render() {
     return (
       <div>
@@ -15,6 +16,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;

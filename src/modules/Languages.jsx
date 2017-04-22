@@ -4,12 +4,11 @@ import colours from 'Src/language-colours.json';
 
 // A coloured language and LOC information.
 function renderLanguage(args) {
-  console.log(args);
   const [language, loc] = args;
   return (
     <div className="language" style={{ backgroundColor: colours[language] }}>
-      <span className="language-language">{language}</span>
-      <span className="language-loc">{`${loc} LOC`}</span>
+      <span>{language}</span>
+      <span>{`${loc} LOC`}</span>
     </div>
   );
 }
