@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { prop, sortBy, take, toPairs } from 'ramda';
-import Languages from 'Modules/Languages';
 import PropTypes from 'prop-types';
+import { prop, sortBy, take, toPairs } from 'ramda';
 import request from 'superagent';
+import Languages from 'Modules/Languages';
 
 // Take the three most popular languages.
 function takeLanguages(response) {

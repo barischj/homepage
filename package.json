@@ -2,7 +2,6 @@
   "name": "homepage",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "eslint-import-resolver-webpack": "^0.8.1",
     "font-awesome": "^4.7.0",
     "normalize.css": "^6.0.0",
     "prop-types": "^15.5.8",
@@ -22,6 +21,7 @@
     "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",

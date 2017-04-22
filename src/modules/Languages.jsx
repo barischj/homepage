@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import colours from 'Src/language-colours.json';
 import { map } from 'ramda';
+import colours from 'Src/language-colours.json';
 
 // A coloured language and LOC information.
 function renderLanguage(args) {

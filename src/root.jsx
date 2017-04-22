@@ -1,10 +1,10 @@
-import 'normalize.css/normalize.css';
 import 'font-awesome/css/font-awesome.css';
-import 'Src/app.sass';
-import App from 'Modules/App';
+import 'normalize.css/normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import WebFont from 'webfontloader';
+import App from 'Modules/App';
+import 'Src/app.sass';
 
 if (module.hot) {
   module.hot.accept();
