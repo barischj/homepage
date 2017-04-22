@@ -2,6 +2,7 @@
   "name": "homepage",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "eslint-import-resolver-webpack": "^0.8.1",
     "font-awesome": "^4.7.0",
     "normalize.css": "^6.0.0",
     "prop-types": "^15.5.8",
@@ -36,6 +37,6 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server -d --hot",
-    "test": "eslint . --ignore-pattern '!./*.js'"
+    "test": "eslint . --ext .jsx --ignore-pattern '!./*.js'"
   }
 }
