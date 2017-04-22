@@ -13,9 +13,10 @@ $color-light-primary: white
 
 /* Layout units.
 $unit-tiny: 0.05em
-$unit-sml: 4 * $unit-tiny
-$unit-med: 2 * $unit-sml
-$unit-lrg: 2 * $unit-med
+$unit-vsml: 0.1em
+$unit-sml: 0.2em
+$unit-med: 0.4em
+$unit-lrg: 0.8em
 
 /* Container sizes.
 $header-container-height: 95vh
@@ -61,11 +62,12 @@ hr
 
 .repo-card
   background-color: $color-light-primary
-  border-radius: $unit-tiny
+  border-radius: $unit-vsml
   display: flex
   flex-direction: column
   height: 12em
   margin: $half-repo-grid-gutter
+  overflow: hidden
   font-family: 'Open Sans', sans-serif
   text-align: center
   width: 16em
@@ -75,7 +77,7 @@ hr
 
 .share-dialog
   background-color: $color-dark-primary
-  border-radius: $unit-sml
+  border-radius: $unit-vsml
   color: white
   font-size: 1.5em
   margin: $unit-sml
