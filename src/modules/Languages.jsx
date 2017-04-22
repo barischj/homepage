@@ -11,14 +11,13 @@ import colours from 'Src/language-colours.json';
 function renderLanguage(args) {
   const [language, percent] = args;
   return (
-    <div
-      className="language"
+    <tr
       key={`${language}${percent}`}
       style={{ backgroundColor: colours[language] }}
     >
-      <span>{language}</span>
-      <span>{`${percent} %`}</span>
-    </div>
+      <td className="language-td">{language}</td>
+      <td className="ranguage-td">{`${percent} %`}</td>
+    </tr>
   );
 }
 
@@ -26,9 +25,9 @@ class Languages extends Component {
 
   render() {
     return (
-      <div>
+      <table className="language-table">
         {map(renderLanguage, this.props.languages)}
-      </div>
+      </table>
     );
   }
 

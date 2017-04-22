@@ -23,6 +23,7 @@ $header-container-height: 95vh
 
 /* Remaining variables.
 $half-repo-grid-gutter: $unit-lrg
+$repo-card-size: 16em
 
 body
   margin: 0
@@ -46,10 +47,12 @@ hr
   margin-left: 0
   margin-right: 0
 
-.language
-  display: flex
-  justify-content: space-around
-  padding: $unit-med
+.language-table
+  border-collapse: collapse
+  width: inherit
+
+.language-td
+  padding: $unit-lrg
 
 .repos-container
   background-color: $color-dark-secondary
@@ -65,12 +68,12 @@ hr
   border-radius: $unit-vsml
   display: flex
   flex-direction: column
-  height: 12em
+  height: $repo-card-size
   margin: $half-repo-grid-gutter
   overflow: hidden
   font-family: 'Open Sans', sans-serif
   text-align: center
-  width: 16em
+  width: $repo-card-size
 
 .repo-card-description
   flex-grow: 1

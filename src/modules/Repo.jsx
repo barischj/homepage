@@ -9,12 +9,12 @@ import Languages from 'Modules/Languages';
  * @param {Object} response - The JSON response from GitHub's language API. Each
  *   key is a language e.g. Haskell and the value is the number of bytes written
  *   in that language.
- * @returns {[[string, number]]} A list of the three most used languages and
+ * @returns {[[string, number]]} A list of the two most used languages and
  *   respective percentage of use, in ascending order.
  */
 function takeLanguages(response) {
   const mostUsed =
-    R.take(3, R.reverse(R.sortBy(R.prop(1), R.toPairs(response))));
+    R.take(2, R.reverse(R.sortBy(R.prop(1), R.toPairs(response))));
   const totalBytes = R.sum(R.values(response));
   return R.map(R.adjust(x => Math.round((x / totalBytes) * 100), 1), mostUsed);
 }
