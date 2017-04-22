@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import FAIconLink from 'Modules/FAIconLink';
 
-function renderIconLink(icon, url) {
-  return (
-    <span className="margin-sml">
-      <FAIconLink url={url} icon={icon} />
-    </span>
-  );
-}
-
 class Header extends Component {
 
   render() {
@@ -16,8 +8,8 @@ class Header extends Component {
       <div className="header-content">
         <p className="title">Jeremy Barisch Rooney</p>
         <div>
-          {renderIconLink('fa-github', 'https://github.com/barischj')}
-          {renderIconLink('fa-linkedin', 'https://linkedin.com/in/jbarischr')}
+          <FAIconLink icon="fa-github" url="https://github.com/barischj" />
+          <FAIconLink icon="fa-linkedin" url="https://linkedin.com/in/jbarischr" />
         </div>
       </div>
     );
