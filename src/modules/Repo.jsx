@@ -5,30 +5,32 @@ import request from 'superagent';
 import urljoin from 'url-join';
 import Languages from 'Modules/Languages';
 
-/**
- * @param {Object} response - The JSON response from GitHub's language API. Each
- *   key is a language e.g. Haskell and the value is the number of bytes written
- *   in that language.
- * @returns {[[string, number]]} A list of the two most used languages and
- *   respective percentage of use, in ascending order.
- */
-function takeLanguages(response) {
-  const mostUsed =
-    R.take(2, R.reverse(R.sortBy(R.prop(1), R.toPairs(response))));
+const repoUrl = repo => `https://api.github.com/repos/barischj/${repo}`;
+const languagesUrl = repo => urljoin(repoUrl(repo), '/languages');
+
+// Takes an object in the format {languages1: bytes, language2: bytes, ...}
+// where bytes is an int saying how many bytes where used by that language for
+// a repo. Returns a list of objects, where the following is an example of an
+// object:
+// {
+//  name: "Haskell",
+//  bytes: 1000,
+//  percentage: 90,
+// }
+const takeLanguages = (response) => {
+  const languages =
+    R.map(x => ({ name: x[0], bytes: x[1] }), R.toPairs(response));
   const totalBytes = R.sum(R.values(response));
-  return R.map(R.adjust(x => Math.round((x / totalBytes) * 100), 1), mostUsed);
-}
+  const languageWithPercentage = x =>
+    ({ ...x, percentage: Math.round((x.bytes / totalBytes) * 100) });
+  const topLanguages =
+    R.take(2, R.reverse(R.sortBy(R.prop('bytes'), languages)));
+  return R.map(languageWithPercentage, topLanguages);
+};
 
-function repoUrl(repo) {
-  return `https://api.github.com/repos/barischj/${repo}`;
-}
-
-function languagesUrl(repo) {
-  return urljoin(repoUrl(repo), '/languages');
-}
-
+// An element describing a GitHub repo.
+// Includes title, description and top languages.
 class Repo extends Component {
-
   static propTypes = {
     repo: PropTypes.string.isRequired,
   }
@@ -42,13 +44,13 @@ class Repo extends Component {
     // Get description.
     request.get(repoUrl(this.props.repo))
       .end((err, response) => {
-        if (err) console.log(err);
+          /* if (err) console.log(err);*/
         this.setState({ description: JSON.parse(response.text).description });
       });
     // Get languages.
     request.get(languagesUrl(this.props.repo))
       .end((err, response) => {
-        if (err) console.log(err);
+          /* if (err) console.log(err);*/
         this.setState({ languages: takeLanguages(JSON.parse(response.text)) });
       });
   }

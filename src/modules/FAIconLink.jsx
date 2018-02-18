@@ -1,21 +1,16 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 
-class FAIconLink extends Component {
+// A Font Awesome icon link.
+const FAIconLink = props => (
+  <a href={props.url} className="share-dialog">
+    <i className={`fa ${props.icon}`} />
+  </a>
+);
 
-  static propTypes = {
-    icon: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  }
-
-  render() {
-    return (
-      <a href={this.props.url} className="share-dialog">
-        <i className={`fa ${this.props.icon}`} />
-      </a>
-    );
-  }
-
-}
+FAIconLink.propTypes = {
+  icon: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+};
 
 export default FAIconLink;

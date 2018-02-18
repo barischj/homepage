@@ -6,10 +6,12 @@ import WebFont from 'webfontloader';
 import App from 'Modules/App';
 import 'Src/app.sass';
 
+// Run hot module replacement if available.
 if (module.hot) {
   module.hot.accept();
 }
 
+// Only render the webpage once fonts are loaded.
 WebFont.load({
   custom: {
     families: ['Cardo'],
