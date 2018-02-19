@@ -24,7 +24,7 @@ const takeLanguages = (response) => {
   const languageWithPercentage = x =>
     ({ ...x, percentage: Math.round((x.bytes / totalBytes) * 100) });
   const topLanguages =
-    R.take(2, R.reverse(R.sortBy(R.prop('bytes'), languages)));
+    R.take(3, R.reverse(R.sortBy(R.prop('bytes'), languages)));
   return R.map(languageWithPercentage, topLanguages);
 };
 
