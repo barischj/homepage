@@ -10,23 +10,17 @@ const dirs = {
   src: path.join(__dirname, 'src'),
 };
 
-// Names of files.
+// Names of files webpack needs to know about.
 const names = {
   inHTML: 'index.html',
   inReact: 'root.jsx',
   outJS: 'bundle.js',
 };
 
-// Absolute paths of files.
-const paths = {
-  inHTML: path.join(dirs.src, names.inHTML),
-  inReact: path.join(dirs.src, names.inReact),
-};
-
 module.exports = {
   entry: {
     // All compiled modules are in the tree of entry.path's imports.
-    app: paths.inReact,
+    app: path.join(dirs.src, names.inReact),
   },
   output: {
     // All output files are written to the output.path directory.
@@ -47,26 +41,18 @@ module.exports = {
         test: /\.sass$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
-      // The following loaders were introduced to add support for loading files
-      // from font-awesome. Based on instructions at:
-      // https://github.com/shakacode/font-awesome-loader/blob/master/docs/usage-webpack2.md
       {
-        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'url-loader',
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        use: 'file-loader',
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        use: 'file-loader?name=assets/[name].[ext]',
       },
     ],
   },
   plugins: [
     new NamedModulesPlugin(),
+    // Inject the bundled JavaScript into our HTML.
     new HtmlWebpackPlugin({
-      // Inject the bundled JavaScript into our HTML.
       inject: 'body',
-      template: paths.inHTML,
-      title: 'Jeremy',
+      template: path.join(dirs.src, names.inHTML),
     }),
   ],
   resolve: {
@@ -76,7 +62,7 @@ module.exports = {
       Modules: dirs.modules,
       Src: dirs.src,
     },
-    // Don't require file extensions when resolving these filetypes.
+    // No need to write file extensions on imports for these filetypes.
     extensions: ['.js', '.jsx'],
   },
 };

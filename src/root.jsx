@@ -12,6 +12,11 @@ if (module.hot) {
 }
 
 // Only render the webpage once fonts are loaded.
+
+document.addEventListener('DOMContentLoaded', function() {
+
+console.log('poop');
+
 WebFont.load({
   custom: {
     families: ['Cardo'],
@@ -24,3 +29,4 @@ WebFont.load({
   },
 });
 
+});
