@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import R from 'ramda';
+import * as R from 'ramda';
 import colours from 'Src/language-colours.json';
 
 // Return a coloured element containing the language's name and percentage use.
@@ -13,7 +13,6 @@ const renderLanguage = language => (
     <td className="ranguage-td">{`${language.percentage} %`}</td>
   </tr>
 );
-
 
 // A single column table of programming languages.
 const Languages = props => (

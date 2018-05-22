@@ -4,7 +4,7 @@ import React from 'react';
 // A Font Awesome icon link.
 const FAIconLink = props => (
   <a href={props.url} className="share-dialog">
-    <i className={`fa ${props.icon}`} />
+    <i className={`${props.type} ${props.icon}`} />
   </a>
 );
 

@@ -7,7 +7,7 @@
   src: local('Open Sans'), local('OpenSans'), url(fonts/OpenSans-Regular.ttf)
 
 /* Colours.
-$color-dark-primary: #0E1116
+$color-dark-primary: #212529
 $color-dark-secondary: #374A67
 $color-light-primary: white
 
@@ -27,6 +27,7 @@ $repo-card-size: 16em
 
 body
   margin: 0
+  color: $color-dark-primary !important
 
 .header-container
   align-items: center
@@ -35,7 +36,7 @@ body
   height: $header-container-height
   justify-content: center
 
-.header-content
+.header
   align-items: center
   display: flex
   flex-direction: column
@@ -81,12 +82,11 @@ hr
 .share-dialog
   background-color: $color-dark-primary
   border-radius: $unit-vsml
-  color: white
+  color: $color-light-primary
   font-size: 1.5em
   margin: $unit-sml
   padding: $unit-tiny $unit-lrg $unit-tiny $unit-lrg
 
 .title
-  color: $color-dark-primary
   font-family: 'Cardo', serif
   font-size: 3em

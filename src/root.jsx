@@ -1,4 +1,3 @@
-import 'font-awesome/css/font-awesome.css';
 import 'normalize.css/normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,22 +10,14 @@ if (module.hot) {
   module.hot.accept();
 }
 
-// Only render the webpage once fonts are loaded.
+// Render the app on the DOM.
+const renderApp = () => ReactDOM.render(<App />, document.getElementById('root'));
 
-document.addEventListener('DOMContentLoaded', function() {
-
-console.log('poop');
-
+// Render when fonts load.
 WebFont.load({
   custom: {
     families: ['Cardo'],
   },
-  fontactive: () => {
-    ReactDOM.render(
-      <App />,
-      document.getElementById('root'),
-    );
-  },
+  fontactive: renderApp,
 });
 
-});
